@@ -1,0 +1,232 @@
+BAMAB — RELATÓRIO DE REVISÃO FINAL V3.0.0
+Data: 15/08/2026
+
+OBJETIVO
+Revisão final do projeto antes do encerramento da etapa de desenvolvimento,
+com foco em funcionamento, legibilidade, responsividade, impressão,
+segurança, consistência visual e manutenção dos dados existentes.
+
+============================================================
+PÁGINAS PÚBLICAS
+============================================================
+[OK] index.php
+- Identidade visual BAMAB preservada.
+- Menu responsivo e acessível.
+- Atalho "Editar conteúdo" aparece somente para Admin autenticado.
+- Patrocinadores e apoio institucional permanecem EMBUTIDOS na página e não
+  acompanham a rolagem.
+- Links externos validados como HTTP/HTTPS.
+- Logos com escala e cor de fundo controladas com limites seguros.
+
+[OK] historia.php
+- Brasão, título e texto editável pelo Admin.
+- Conteúdo responsivo e alvo do link de acessibilidade.
+
+[OK] agenda.php / agenda_hora.php / agenda_ics.php
+- Agenda interativa, calendário, filtros e eventos.
+- Relógio sincronizado com horário de Brasília.
+- Contagem regressiva usa a mesma referência do relógio.
+- Download de evento em formato ICS.
+- Cards responsivos e compartilhamento mantidos.
+
+[OK] galeria.php
+- Imagem, vídeo e Instagram.
+- Textos alternativos/identificação de mídia revisados.
+
+[OK] campeonatos.php
+- Conquistas ordenadas pelo Admin.
+- Imagem com texto alternativo vinculado ao título.
+
+[OK] integrantes.php / coordenacao.php
+- Separação correta por grupo.
+- Fotos, cargos e biografias.
+- Estados vazios quando não houver registros.
+
+[OK] matriculas.php
+- Período controlado pelo Admin.
+- Número automático de matrícula.
+- Foto obrigatória.
+- Menores de 18 anos com responsável legal.
+- Validação local de CPF.
+- Estudo, rede de ensino, trabalho e pedido de declaração.
+- Termos e autorizações.
+- CSRF presente.
+
+OBSERVAÇÃO IMPORTANTE SOBRE CPF:
+A validação matemática local confirma a estrutura do CPF, mas não consulta
+base governamental e não comprova identidade ou vínculo entre CPF e data de
+nascimento.
+
+[OK] matricula_confirmacao.php
+- Comprovante público por token.
+- CPF mascarado.
+- Alvo de acessibilidade corrigido também na confirmação válida.
+
+[OK] contato.php
+- Links externos filtrados.
+- E-mail validado antes de exibição.
+- Estado vazio se nenhum canal estiver cadastrado.
+
+[OK] noticias.php / noticia.php
+- Listagem, capa, resumo e notícia completa.
+- Data com tratamento seguro.
+- Capa com texto alternativo.
+
+============================================================
+ADMINISTRATIVO
+============================================================
+[OK] admin/dashboard.php
+- Brasão e cores do site.
+- KPIs de matrículas, conteúdo, parceiros e apoio institucional.
+- Atalhos para Teste Celular e Diagnóstico.
+
+[OK] admin/matriculas.php / admin/matricula_ver.php
+- Períodos, filtros, status, responsáveis, documentos e relatórios.
+- Links de impressão e documentos revisados.
+
+[OK] admin/equipe.php / equipe_novo.php / equipe_ver.php
+- Cadastro permanece SOMENTE INTERNO.
+- Funções editáveis.
+- Crachás/carteirinhas e ficha A4.
+- Cadastro público de equipe permanece bloqueado.
+
+[OK] admin/presenca.php
+- Programação semanal.
+- Controle por ala.
+- Entrada e saída.
+- Relatórios e limpeza protegida por confirmação forte.
+
+[OK] admin/instrutores.php
+- Instrutor/Auxiliar, CPF, nascimento, login e áreas atribuídas.
+- Somente Admin Geral gerencia os cadastros.
+
+[OK] admin/documentos.php
+- Editor de cores, títulos, textos e fontes.
+- Tamanhos de fonte limitados a faixas seguras.
+- Opção de restaurar tamanhos seguros.
+
+[OK] admin/configuracoes.php
+- Nome, textos, contatos, cores, logo e imagem principal.
+- URLs, e-mail e cores validados.
+- Nome da página corrigido para "Editar Site".
+
+[OK] admin/minha_conta.php
+- Dados do Admin e configuração para recuperação de senha.
+
+[OK] admin/conquistas.php / pessoas.php / galeria.php / noticias.php
+- Formulários, upload, publicação, edição e exclusão revisados.
+
+[OK] admin/instagram.php / instagram_export.php
+- Links de posts e importação do ZIP oficial preservados.
+
+[OK] admin/agenda.php
+- Cadastro de data, horário, tipo, local, ala, descrição, destaque e publicação.
+- A arte pública é gerada dinamicamente pelo sistema.
+
+[OK] admin/patrocinadores.php
+- Texto do Admin corrigido: o quadro é EMBUTIDO e NÃO FLUTUA.
+- Tempo individual, ordem, tamanho, fundo, link e visibilidade.
+- Chave geral para desativar sem apagar cadastros.
+
+[OK] admin/apoio_institucional.php
+- Prefeitura, Secretarias e órgãos em área separada dos patrocinadores.
+- Posição inferior esquerda/direita escolhida no Admin.
+- Quadro embutido, sem acompanhar rolagem.
+
+[OK] admin/teste_dispositivos.php
+- Novo painel para teste em celular/tablet.
+- Detecta IP local quando possível.
+- Gera link e QR Code para a mesma rede.
+- Simulador de larguras e checklist.
+
+[OK] admin/diagnostico.php
+- Novo diagnóstico protegido por login.
+- O antigo diagnóstico público foi fechado.
+
+============================================================
+ÁREA DO INSTRUTOR
+============================================================
+[OK] login / recuperação de senha
+- Área interna noindex.
+- CSS atualizado com controle de versão.
+- Proteção contra tentativas repetidas: após 5 falhas, bloqueio temporário de
+  15 minutos para o mesmo tipo de acesso/IP.
+
+[OK] controle / presença / frequência / relatórios
+- Instrutor vê somente as áreas atribuídas.
+- Entrada e saída separadas.
+- Saída exige entrada anterior.
+- Frequência por área e relatório final.
+- Relatórios A4 e Excel preservados.
+
+============================================================
+DOCUMENTOS E IMPRESSÃO
+============================================================
+[OK] Carteirinha aluno/equipe/acompanhante
+- 85,60 x 53,98 mm.
+- Frente/verso, somente frente ou somente verso.
+- Autoajuste de nome e textos longos.
+- Faixa do nome ampliada e legível.
+- QR, foto, brasão, validade e status sem sobreposição planejada.
+
+[OK] Crachá aluno/equipe/acompanhante
+- 90 x 120 mm.
+- Frente/verso com modos de impressão.
+- Autoajuste de fonte.
+
+[OK] Ficha matrícula / ficha equipe
+- A4 independente da tela administrativa.
+- Brasão, marca d'água, dados e assinaturas.
+
+[OK] Declarações escola/trabalho
+- A4, brasão e marca d'água.
+- Texto cauteloso: documento não abona automaticamente falta escolar nem
+  cria automaticamente direito a dispensa/abono no trabalho.
+- Referências jurídicas revisadas na etapa final.
+
+[OK] Relatórios
+- A4 com cabeçalho e assinaturas.
+- Excel/CSV preservados onde aplicável.
+- Modelo XLSX corrigido para Santa Luzia do Paruá — Maranhão.
+- Nenhum erro de fórmula conhecido no modelo XLSX final.
+
+============================================================
+SEGURANÇA E CONSISTÊNCIA
+============================================================
+[OK] Sessão com cookie HttpOnly, SameSite=Lax e Secure quando HTTPS.
+[OK] CSRF em todos os formulários POST detectados.
+[OK] Uploads usam verificação de MIME e limites de tamanho.
+[OK] Links externos aceitam apenas HTTP/HTTPS.
+[OK] Links target=_blank revisados com noopener/noreferrer.
+[OK] Admin e Instrutor marcados noindex/noarchive.
+[OK] Diagnóstico do servidor não fica público.
+[OK] robots.txt bloqueia Admin, Instrutor, data e diagnóstico.
+[OK] Cabeçalhos X-Content-Type-Options, X-Frame-Options, Referrer-Policy e
+     Permissions-Policy mantidos/adicionados.
+[OK] Cadastro público de equipe permanece bloqueado por projeto.
+
+============================================================
+BANCO / CÓDIGO / TESTES AUTOMÁTICOS DA REVISÃO
+============================================================
+- 75 arquivos PHP passaram em php -l sem erro de sintaxe.
+- 2 arquivos JavaScript passaram em node --check.
+- Referências estáticas locais analisadas: 0 arquivos referenciados ausentes.
+- Formulários POST analisados: 0 formulários detectados sem token CSRF.
+- Migração do banco analisada em ordem contra SQLite de teste:
+  84 eventos de criação/alteração de esquema, 0 erros SQL.
+- Modelo XLSX inspecionado com artifact_tool:
+  localização antiga incorreta removida; "Santa Luzia do Paruá — Maranhão" confirmada;
+  nenhum #REF!, #DIV/0!, #VALUE!, #NAME? ou #N/A detectado.
+
+LIMITAÇÃO DO AMBIENTE DE REVISÃO:
+O PHP desta máquina de revisão não possui a extensão PDO SQLite, portanto o
+fluxo dinâmico completo do site não pôde ser executado aqui com PHP real.
+Por isso foi feita validação de sintaxe, referências, formulários e uma
+simulação sequencial do esquema em SQLite. O teste final de uso deve ser feito
+no XAMPP com PDO SQLite ativo, usando o novo Teste Celular e o Diagnóstico.
+
+============================================================
+STATUS FINAL
+============================================================
+Versão preparada para teste final de aceitação em computador, celular e
+tablet: BAMAB V3.0.0.

@@ -1,0 +1,2 @@
+<?php require __DIR__.'/layout.php';site_header('História');?>
+<main id="conteudo-principal" class="content-page"><header class="page-banner"><span>NOSSA TRAJETÓRIA</span><h1><?=e(setting('history_title','Como a Banda Começou'))?></h1></header><section class="story-layout"><img src="<?=e(setting('logo_path'))?>" alt="Brasão BAMAB"><div><h2>BAMAB — Banda Amaral Brasil</h2><p><?=nl2br(e(setting('history_text')))?></p></div></section></main><?php site_footer();?>

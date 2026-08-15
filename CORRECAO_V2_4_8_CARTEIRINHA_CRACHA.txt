@@ -1,0 +1,20 @@
+BAMAB V2.4.8 — CORREÇÃO DA CARTEIRINHA E DO CRACHÁ
+==================================================
+
+Erro corrigido:
+- Call to undefined function bamab_student_card_display_name()
+
+Correções aplicadas:
+1. Função criada no config.php para gerar o nome de exibição da carteirinha/crachá:
+   - PRIMEIRO NOME + PRIMEIRO SOBRENOME
+   - PRIMEIRO NOME + ÚLTIMO SOBRENOME
+   - APELIDO / NOME SOCIAL
+2. A opção do nome agora funciona também no CRACHÁ do aluno.
+3. Se o nome principal já for o apelido/nome social, o campo extra de apelido não repete em duplicidade.
+
+COMO ATUALIZAR:
+- substitua a pasta BAMAB atual por esta versão corrigida;
+- ou sobrescreva os arquivos do sistema existente com os arquivos deste pacote.
+
+Link local após instalar:
+- http://localhost/BAMAB/admin/matriculas.php

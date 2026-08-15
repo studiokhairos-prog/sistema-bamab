@@ -1,0 +1,1 @@
+<?php require __DIR__.'/../config.php';header('Location: '.(admin_count()?'login.php':'setup.php'));exit;

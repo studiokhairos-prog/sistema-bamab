@@ -1,0 +1,5 @@
+<?php
+require __DIR__.'/config.php';
+http_response_code(404);
+header('Cache-Control: no-store');
+?><!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Página não disponível — BAMAB</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#080808;color:#eee;font-family:Arial,sans-serif}.box{max-width:620px;margin:20px;padding:30px;border:1px solid #b98d36;border-radius:18px;text-align:center;background:#111}.box img{width:150px}.box h1{color:#d4a928}.box a{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid #d4a928;border-radius:8px;color:#d4a928;text-decoration:none;font-weight:900}</style></head><body><div class="box"><img src="assets/brasao_bamab_2026.png" alt="BAMAB"><h1>CADASTRO INTERNO</h1><p>O cadastro de Coordenação, Coreógrafo, Mó, Baliza, Mídia, Secretário, Produção, Coordenador e Coordenador Geral é realizado exclusivamente pelo Admin Geral da BAMAB.</p><p>As matrículas públicas de alunos e integrantes continuam disponíveis normalmente.</p><a href="matriculas.php">IR PARA MATRÍCULAS PÚBLICAS</a></div></body></html>

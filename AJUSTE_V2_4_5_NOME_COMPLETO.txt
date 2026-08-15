@@ -1,0 +1,13 @@
+BAMAB V2.4.5 — AJUSTE DO NOME COMPLETO
+======================================
+
+Ajuste aplicado:
+- diminuída a fonte do nome do aluno na CARTEIRINHA;
+- diminuída a fonte do nome do aluno no CRACHÁ;
+- agora o campo do nome aceita 2 linhas;
+- redução automática da fonte conforme o tamanho do nome;
+- objetivo: exibir o nome completo de forma mais visível, sem cortar.
+
+Arquivos alterados:
+- admin/carteirinha.php
+- admin/_doc_badge_template.php

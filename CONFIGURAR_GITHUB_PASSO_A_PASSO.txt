@@ -1,0 +1,83 @@
+BAMAB V3.4.3 — CONFIGURAÇÃO GITHUB + HOSPEDAGEM PHP
+====================================================
+
+IMPORTANTE
+---------
+O GitHub Pages é hospedagem estática e NÃO executa PHP.
+A BAMAB usa PHP + SQLite, portanto o funcionamento correto é:
+
+GITHUB -> guarda o código e as versões
+GITHUB ACTIONS -> envia as atualizações automaticamente
+HOSPEDAGEM PHP -> executa a BAMAB e mantém banco/uploads
+
+CONFIGURAÇÃO RECOMENDADA COM INFINITYFREE
+-----------------------------------------
+1. Crie um repositório PRIVADO no GitHub, por exemplo: BAMAB-SISTEMA.
+2. Extraia este ZIP.
+3. Envie TODO o conteúdo desta pasta para a RAIZ do repositório.
+   O arquivo index.php deve aparecer na raiz do GitHub.
+4. No repositório abra:
+   Settings > Secrets and variables > Actions > New repository secret
+5. Crie estes 4 secrets:
+
+   FTP_HOST
+   Valor recomendado no InfinityFree: ftpupload.net
+
+   FTP_USERNAME
+   Valor: usuário FTP exibido no painel InfinityFree
+
+   FTP_PASSWORD
+   Valor: senha FTP da conta de hospedagem
+
+   FTP_REMOTE_DIR
+   Primeiro domínio normalmente: /htdocs/
+   Domínio adicional pode ser: /seudominio.com/htdocs/
+   CONFIRME o caminho no painel da hospedagem.
+
+6. Abra a aba Actions no GitHub.
+7. Escolha "Publicar BAMAB na hospedagem".
+8. Clique em "Run workflow" para fazer a primeira publicação.
+9. Depois disso, toda alteração enviada para a branch main dispara a publicação automaticamente.
+
+NÃO ATIVE GITHUB PAGES PARA O SISTEMA COMPLETO.
+-----------------------------------------------
+GitHub Pages mostraria apenas HTML/CSS/JS. Arquivos PHP não seriam executados.
+
+SEGURANÇA
+---------
+- Nunca coloque senha FTP dentro de arquivo PHP, TXT ou YAML.
+- As credenciais ficam em GitHub Actions Secrets.
+- Nunca envie o banco real para o GitHub.
+- O arquivo .gitignore protege data/*.sqlite, data/*.db e uploads dos usuários.
+- Recomenda-se repositório PRIVADO porque o projeto contém a lógica do painel administrativo.
+
+BANCO E UPLOADS
+---------------
+O deploy automático não apaga o conteúdo remoto.
+Isso preserva:
+- banco SQLite;
+- fotos 3x4;
+- logos;
+- assinaturas;
+- imagens de patrocinadores;
+- uploads do sistema.
+
+PRIMEIRO TESTE
+--------------
+Depois da primeira publicação, abra no navegador:
+https://SEU-ENDERECO/
+
+Depois teste:
+https://SEU-ENDERECO/admin/diagnostico.php
+https://SEU-ENDERECO/admin/setup.php   (somente se ainda não houver Admin)
+
+Se o site já estiver instalado com dados reais, NÃO rode um novo setup sem necessidade.
+
+ATUALIZAÇÕES FUTURAS
+--------------------
+Você edita/atualiza os arquivos no GitHub e envia para a branch main.
+O GitHub Actions publica a atualização automaticamente.
+
+VERSÃO
+------
+BAMAB V3.4.3 — configuração GitHub/Deploy.

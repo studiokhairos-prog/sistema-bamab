@@ -1,0 +1,132 @@
+BAMAB V3.4.0 — QR CODE + CONTROLE TOTAL DE PRESENÇA
+=====================================================
+
+ANTES DE ATUALIZAR
+------------------
+1. Faça backup das pastas data e uploads da instalação atual.
+2. Substitua os arquivos do sistema preservando seus dados e uploads.
+3. Abra o sistema pelo XAMPP normalmente. As novas colunas/tabelas são criadas pela migração automática do sistema.
+
+OBJETIVO DA V3.4.0
+------------------
+O QR Code passa a funcionar como identificação permanente e como controle oficial de ENTRADA e SAÍDA em:
+- ensaios;
+- reuniões;
+- apresentações;
+- campeonatos;
+- eventos especiais.
+
+O mesmo QR é reutilizado em todos os eventos. Não é necessário gerar um QR novo a cada ensaio.
+
+QUEM PODE MARCAR PRESENÇA
+-------------------------
+- ALUNO
+- INSTRUTOR / AUXILIAR
+- EQUIPE BAMAB
+- ACOMPANHANTE / RESPONSÁVEL
+
+REGRAS DE VALIDADE
+------------------
+ALUNO:
+- matrícula APROVADA;
+- carteirinha ATIVA;
+- carteirinha dentro da validade.
+
+INSTRUTOR / AUXILIAR:
+- cadastro ATIVO.
+- cada instrutor recebe um QR permanente ligado ao seu código BAMAB-I-XXXXXX.
+
+EQUIPE BAMAB:
+- cadastro APROVADO;
+- documento/crachá ATIVO;
+- documento dentro da validade.
+
+ACOMPANHANTE / RESPONSÁVEL:
+- matrícula do aluno vinculado APROVADA;
+- carteirinha do acompanhante ATIVA;
+- carteirinha dentro da validade.
+
+LEITOR GERAL QR
+---------------
+Admin -> Leitor Geral QR
+Arquivo: admin/presenca_leitor.php
+
+O Admin pode criar uma atividade, definir data/horário, selecionar quem participa e, quando necessário, selecionar as alas participantes.
+
+Fluxo:
+FECHADO -> ABRIR ENTRADA -> ENCERRAR ENTRADA -> ABRIR SAÍDA -> CONCLUIR ATIVIDADE
+
+Regras:
+- entrada duplicada não é gravada duas vezes;
+- saída duplicada não é gravada duas vezes;
+- não existe saída sem entrada anterior;
+- ao abrir a entrada, a lista esperada do evento é congelada para preservar o histórico de presentes/ausentes;
+- uma pessoa que já registrou entrada ainda pode registrar a saída daquele evento mesmo que o cadastro seja alterado/desativado depois, preservando o histórico real da atividade.
+
+LEITURA
+-------
+Pode ser feita por:
+- câmera do dispositivo, quando o navegador oferecer suporte;
+- digitação manual da matrícula/código.
+
+IMPORTANTE PARA TESTE EM CELULAR:
+Ao abrir o XAMPP no celular por endereço IP local usando HTTP, alguns navegadores bloqueiam acesso à câmera por segurança. Nesse caso, use o campo de código manual. Em publicação HTTPS, a câmera funciona quando o navegador oferece suporte ao leitor QR.
+
+QR DO INSTRUTOR
+---------------
+Admin -> Instrutores e Auxiliares -> CRACHÁ / QR
+Arquivo: admin/cracha_instrutor.php
+
+O próprio instrutor também encontra:
+Área do Instrutor -> MEU QR
+Arquivo: instrutor/meu_qr.php
+
+RELATÓRIO GERAL
+---------------
+Arquivo: admin/presenca_geral_relatorio.php?event_id=ID
+
+Mostra por pessoa:
+- nome;
+- matrícula/código;
+- função/ala;
+- hora da entrada;
+- hora da saída;
+- status.
+
+Status:
+PRESENÇA COMPLETA = entrada + saída
+SAÍDA PENDENTE = entrada sem saída
+AUSENTE = nenhuma entrada
+
+O relatório pode ser impresso em A4 e exportado em Excel compatível (.xls) ou CSV.
+
+FREQUÊNCIA GERAL
+----------------
+Admin -> Frequência Geral
+Arquivo: admin/frequencia_geral.php
+
+Permite acompanhar por ano e por tipo de pessoa:
+- total de atividades esperadas;
+- presenças completas;
+- saídas pendentes;
+- ausências;
+- percentual de frequência.
+
+PROGRAMAÇÃO SEMANAL
+-------------------
+A programação semanal passou a permitir escolher os grupos esperados no evento:
+- alunos;
+- instrutores/auxiliares;
+- equipe;
+- acompanhantes/responsáveis.
+
+Os relatórios antigos por ala continuam funcionando para ALUNOS e foram isolados para que as marcações de instrutores/equipe não alterem suas contagens.
+
+PRIVACIDADE DO QR
+-----------------
+O QR não precisa expor os dados pessoais completos. Ele usa um identificador/token do cadastro, e o sistema consulta os dados atuais no banco no momento da entrada.
+
+VERSÃO
+------
+BAMAB V3.4.0
+QR Code + Controle Total de Presença

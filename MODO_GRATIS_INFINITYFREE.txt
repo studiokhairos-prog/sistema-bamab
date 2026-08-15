@@ -1,0 +1,42 @@
+BAMAB V3.4.2 — MODO HOSPEDAGEM GRATUITA
+
+OBJETIVO
+Esta cópia foi preparada para testar/publicar a BAMAB em uma hospedagem gratuita compatível com PHP 8 e SQLite.
+Perfil preparado: InfinityFree.
+
+O QUE FOI AJUSTADO
+- Modo Grátis identificado no Admin.
+- Imagens limitadas a 8 MB por arquivo.
+- Vídeos locais limitados a 8 MB por arquivo.
+- Aviso quando o banco SQLite atingir 8 MB.
+- Referência máxima de 10 MB para o arquivo SQLite no plano gratuito.
+- Página Admin > Modo Grátis com tamanho do banco e botão de backup.
+- Proteção .htaccess para data e uploads mantida.
+- Recursos de Matrícula, Admin, Instrutores, Avaliações, QR, Presença, Agenda, Diplomas e Certificados preservados.
+
+COMO PUBLICAR
+1. Crie uma conta gratuita na InfinityFree.
+2. Crie um subdomínio gratuito ou conecte um domínio que você já possui.
+3. Abra o File Manager/FTP e entre em htdocs.
+4. Envie OS ARQUIVOS que estão dentro da pasta BAMAB deste pacote.
+   - Se quiser o site na raiz: envie o conteúdo de BAMAB diretamente para htdocs.
+   - Se quiser /BAMAB/: crie htdocs/BAMAB e envie o conteúdo ali.
+5. Acesse https://SEU-ENDERECO/admin/setup.php e crie o Admin Geral.
+6. Acesse /admin/diagnostico.php.
+7. Acesse /admin/modo_gratis.php e faça o primeiro backup.
+8. Teste matrícula, login, uploads, Agenda, QR, presença e impressão.
+
+IMPORTANTE
+- Use HTTPS, principalmente para câmera e leitura QR em celulares.
+- Não use WWW em subdomínio gratuito se o certificado HTTPS da hospedagem não cobrir essa variação.
+- O banco SQLite é um arquivo. No plano gratuito, acompanhe o tamanho em Admin > Modo Grátis.
+- Ao chegar perto de 8 MB, faça backup e considere migrar para MySQL/hospedagem paga antes de chegar ao limite.
+- Hospedagem gratuita não deve ser tratada como único local de backup.
+- Antes de atualizar o sistema, preserve SEMPRE data/ e uploads/.
+
+BACKUP
+Admin > Modo Grátis > BAIXAR BACKUP DO BANCO AGORA.
+Para fotos, logos e assinaturas, salve também a pasta uploads/.
+
+PACOTE LEVE PARA UPLOAD
+Também foi preparado um pacote leve sem a planilha-modelo de aproximadamente 10 MB. Ele mantém o sistema funcionando normalmente e deixa apenas essa planilha opcional de fora. Use o pacote leve se a hospedagem não aceitar o ZIP completo.

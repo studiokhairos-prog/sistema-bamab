@@ -1,0 +1,107 @@
+BAMAB — BANDA AMARAL BRASIL
+VERSÃO FINAL DE REVISÃO V3.0.0
+Data da revisão: 15/08/2026
+
+============================================================
+1. ANTES DE ATUALIZAR
+============================================================
+Faça cópia de segurança das pastas da instalação atual:
+- data
+- uploads
+
+Essas pastas guardam o banco de dados e os arquivos enviados pelo sistema.
+
+============================================================
+2. INSTALAÇÃO NO XAMPP
+============================================================
+Pasta recomendada:
+C:\xampp\htdocs\BAMAB
+
+Endereço do site no computador:
+http://localhost/BAMAB/
+
+Painel administrativo:
+http://localhost/BAMAB/admin/
+
+Área do Instrutor:
+http://localhost/BAMAB/instrutor/login.php
+
+============================================================
+3. TESTE EM CELULAR E TABLET
+============================================================
+Depois de instalar e ligar o Apache no XAMPP, abra no computador:
+
+http://localhost/BAMAB/admin/teste_dispositivos.php
+
+A página mostra:
+- o endereço local para abrir no celular;
+- QR Code do endereço da rede local;
+- instrução de mesma rede Wi-Fi;
+- simulador de larguras 360, 390, 430, 768 e 1024 px;
+- checklist para teste em aparelhos reais.
+
+Se o Windows pedir permissão para o Apache na rede, permita em rede privada.
+Se o IP não for detectado automaticamente, execute "ipconfig" no Prompt de
+Comando e use o Endereço IPv4 da rede Wi-Fi.
+
+ATENÇÃO: navegadores modernos podem bloquear a CÂMERA do leitor de QR quando
+o site é aberto por HTTP usando um IP local. O restante do sistema pode ser
+testado pela rede local. Para testar a câmera do QR em celular, prefira HTTPS.
+O lançamento manual de presença continua disponível como alternativa.
+
+============================================================
+4. DIAGNÓSTICO
+============================================================
+No Admin:
+http://localhost/BAMAB/admin/diagnostico.php
+
+Verifique especialmente:
+- PHP 8+
+- PDO
+- PDO SQLite
+- SQLite3
+- pasta data gravável
+- pasta uploads gravável
+
+============================================================
+5. IMPRESSÃO
+============================================================
+Carteirinha: 85,60 x 53,98 mm (ID-1)
+Crachá BAMAB: 90 x 120 mm
+Relatórios, fichas e declarações: A4 (210 x 297 mm)
+
+Para carteirinhas e crachás:
+- Escala 100% / Tamanho real
+- Sem ajustar à página
+- Margens: nenhuma, quando a impressora permitir
+
+============================================================
+6. PRINCIPAIS ÁREAS REVISADAS
+============================================================
+- Página principal e navegação responsiva
+- História
+- Agenda Interativa e relógio de Brasília
+- Galeria
+- Campeonatos
+- Integrantes
+- Coordenação
+- Matrículas públicas
+- Responsáveis de menores
+- Comprovante de matrícula
+- Contato
+- Notícias
+- Admin completo
+- Editor do site
+- Editor de carteirinhas e crachás
+- Equipe interna
+- Instrutores e auxiliares
+- Presença por ala
+- Frequência e relatórios
+- Patrocinadores / apoiadores / idealizadores
+- Prefeitura / Secretarias / apoio institucional
+- Fichas A4, declarações e relatórios
+- Carteirinhas, crachás e QR Codes
+- Login, recuperação de senha e proteção contra tentativas repetidas
+- Teste em celulares e diagnóstico interno
+
+Consulte RELATORIO_REVISAO_FINAL_V3_0.txt para o checklist técnico completo.

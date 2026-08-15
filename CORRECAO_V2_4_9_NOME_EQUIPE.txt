@@ -1,0 +1,25 @@
+BAMAB V2.4.9 — CORREÇÃO DE NOMES NOS DOCUMENTOS DA EQUIPE
+==========================================================
+
+A mesma correção aplicada aos alunos agora vale para a EQUIPE INTERNA.
+
+No Admin Geral -> Editor de Documentos existe uma opção separada:
+MODO DO NOME NOS DOCUMENTOS DA EQUIPE
+
+Opções:
+1. PRIMEIRO NOME + PRIMEIRO SOBRENOME
+2. PRIMEIRO NOME + ÚLTIMO SOBRENOME
+3. APELIDO / NOME SOCIAL
+
+A opção é usada automaticamente em:
+- CARTEIRINHA DA EQUIPE;
+- CRACHÁ DA EQUIPE.
+
+Outras correções:
+- nomes maiores reduzem a fonte automaticamente;
+- a carteirinha aceita até duas linhas para o nome;
+- o crachá continua com ajuste automático de tamanho;
+- se o apelido/nome social já for usado como nome principal, ele não é repetido em outro campo;
+- se o apelido estiver vazio, o sistema usa o nome cadastrado.
+
+A configuração de ALUNOS continua independente da configuração da EQUIPE.

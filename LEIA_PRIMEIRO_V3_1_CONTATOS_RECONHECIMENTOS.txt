@@ -1,0 +1,59 @@
+BAMAB V3.1.0 — CONTATOS DINÂMICOS + CERTIFICADOS E DIPLOMAS
+=============================================================
+
+ANTES DE ATUALIZAR
+1. Faça backup das pastas data e uploads da instalação atual.
+2. Substitua os arquivos do sistema pela nova versão.
+3. Recoloque/preserve data e uploads existentes.
+4. Abra o site no XAMPP. As novas tabelas são criadas automaticamente.
+
+NOVO — CONTATOS / WHATSAPP
+Admin: /admin/contatos.php
+- Quantidade livre de contatos.
+- Classificação OFICIAL ou SECUNDÁRIO.
+- Tipos: WhatsApp, telefone, e-mail, Instagram, Facebook, YouTube, site e outro.
+- Link do WhatsApp gerado automaticamente a partir do número com DDD.
+- Mensagem inicial do WhatsApp editável.
+- Ordem e visibilidade individuais.
+- Página pública /contato.php reorganizada e responsiva.
+- Contatos oficiais podem aparecer também na página inicial.
+- Primeiro WhatsApp ativo aparece no rodapé.
+- Contatos antigos são importados uma única vez para o novo gerenciador quando possível.
+
+NOVO — CERTIFICADOS E DIPLOMAS
+Admin: /admin/reconhecimentos.php
+Editor: /admin/reconhecimento_config.php
+- Disponível para TODOS os alunos e TODOS os membros da equipe não excluídos.
+- Admin pode emitir CERTIFICADO, DIPLOMA ou ambos para qualquer pessoa.
+- Sugestão automática:
+  * entrou no ano selecionado: NOVATO DO ANO — certificado sugerido;
+  * entrou antes: VETERANO — diploma sugerido.
+  A sugestão NÃO limita a decisão do Admin.
+- Ano atual é selecionado por padrão, mas pode ser alterado.
+- Não exige foto 3x4.
+- Certificado e diploma seguem as mesmas cores do Editor de Carteirinhas/Crachás.
+- Títulos, subtítulos, textos para aluno/equipe, local e rodapé são editáveis.
+- Campos automáticos: {NOME}, {ANO}, {FUNCAO}, {MATRICULA}.
+- Assinaturas editáveis: nome, cargo, imagem opcional, ordem e ativação.
+- Assinaturas iniciais sugeridas por cargo:
+  * Coordenador(a) Geral — BAMAB
+  * Representante da Coordenação — BAMAB
+  * Secretário(a) Municipal de Cultura
+  * Prefeito(a) Municipal
+  Os NOMES ficam em branco até o Admin preencher, evitando dados inventados.
+- Impressão em A4 paisagem.
+- Número de controle único por documento.
+- Documento pode ser cancelado e reativado pelo Admin.
+
+TESTE EM CELULAR
+Admin: /admin/teste_dispositivos.php
+O computador e o celular precisam estar na mesma rede Wi-Fi.
+A página mostra o endereço local e QR Code de teste.
+
+VALIDAÇÃO DESTA ENTREGA
+- 79 arquivos PHP: sintaxe validada com php -l.
+- 2 arquivos JavaScript: sintaxe validada com node --check.
+- Estrutura/migração SQLite simulada: 88 operações de schema, 0 erros.
+
+OBSERVAÇÃO
+O ambiente de montagem desta versão não possui PDO SQLite no PHP, portanto o teste integral com o banco real deve ser feito no XAMPP. A estrutura SQL foi validada por simulação com SQLite.

@@ -1,0 +1,76 @@
+BAMAB V3.4.1 — PACOTE PRONTO PARA PUBLICAÇÃO
+============================================
+
+Este pacote foi preparado a partir da V3.4.0 final e NÃO substitui automaticamente
+os dados do sistema que já estiver em uso.
+
+REQUISITOS RECOMENDADOS DA HOSPEDAGEM
+--------------------------------------
+- Apache com suporte a .htaccess.
+- PHP 8.1 ou superior (o sistema requer PHP 8+).
+- PDO e PDO_SQLITE habilitados.
+- SQLite3 habilitado.
+- mbstring habilitado.
+- GD habilitado (tratamento de imagens).
+- fileinfo habilitado.
+- Zip/ZipArchive habilitado quando necessário.
+- HTTPS/SSL ativo, principalmente para uso da câmera no leitor QR em celulares.
+
+ANTES DE PUBLICAR
+-----------------
+1. Faça backup das pastas data/ e uploads/ da instalação que estiver em uso.
+2. NÃO apague um bamab.sqlite real sem ter uma cópia.
+3. Se já houver cadastros reais, envie o banco existente para data/bamab.sqlite.
+4. Envie também a pasta uploads/ existente para preservar fotos, logos e assinaturas.
+
+COMO ENVIAR
+-----------
+OPÇÃO A — domínio exclusivo para a BAMAB:
+Envie o CONTEÚDO da pasta BAMAB para a pasta pública do domínio (geralmente public_html/).
+O endereço ficará parecido com:
+https://seudominio.com/
+
+OPÇÃO B — BAMAB dentro de outro site/domínio:
+Crie public_html/BAMAB/ e envie o conteúdo para essa pasta.
+O endereço ficará parecido com:
+https://seudominio.com/BAMAB/
+
+PERMISSÕES
+----------
+As pastas data/ e uploads/ precisam ser graváveis pelo PHP.
+Comece com permissões normais do servidor (geralmente 755 para pastas).
+Se o diagnóstico indicar que não são graváveis, use 775 se a hospedagem exigir.
+Evite 777 sempre que possível.
+
+PRIMEIRO TESTE NO SERVIDOR
+--------------------------
+1. Abra o site pelo HTTPS.
+2. Entre no Admin.
+3. Acesse Admin > Diagnóstico.
+4. Confirme PHP, PDO SQLite, SQLite3, data e uploads como OK.
+5. Teste matrícula, upload de foto, emissão de carteirinha/crachá, QR, presença,
+   Agenda, Contatos, Patrocinadores, Apoio Institucional, Avaliações,
+   Certificados e Diplomas.
+6. Teste o site em celular e tablet.
+
+ADMIN INICIAL
+-------------
+Se o banco for novo e ainda não houver Admin, use /admin/setup.php para criar o primeiro.
+Se você subir o banco real da instalação local, os usuários existentes são preservados.
+
+QR E CÂMERA NO CELULAR
+----------------------
+Para a câmera funcionar de modo confiável em navegadores modernos, publique com HTTPS.
+O código/manual continua disponível como alternativa.
+
+SEGURANÇA DESTE PACOTE
+----------------------
+- data/ bloqueada ao acesso direto pela web.
+- execução de PHP bloqueada em uploads/.
+- listagem de diretórios desativada.
+- arquivos de banco/backup/configuração sensíveis protegidos pelo .htaccess.
+- cabeçalhos básicos de segurança habilitados quando mod_headers estiver disponível.
+
+VERSÃO
+------
+BAMAB 3.4.1 — pacote de produção/publicação.

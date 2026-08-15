@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /instrutor/
+Disallow: /data/
+Disallow: /diagnostico.php

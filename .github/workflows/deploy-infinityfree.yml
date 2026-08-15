@@ -1,0 +1,82 @@
+name: Publicar BAMAB na hospedagem
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bamab-producao
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Publicar site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código do GitHub
+        uses: actions/checkout@v4
+
+      - name: Conferir pacote antes da publicação
+        shell: bash
+        run: |
+          set -e
+          test -f index.php
+          test -f config.php
+          test -f .htaccess
+          if find data -maxdepth 1 -type f \( -name '*.sqlite' -o -name '*.sqlite3' -o -name '*.db' -o -name '*.db3' \) | grep -q .; then
+            echo 'ERRO: banco de dados real não pode ser enviado pelo GitHub.'
+            exit 1
+          fi
+
+      - name: Instalar cliente de FTP
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y lftp
+
+      - name: Publicar por FTP/FTPS
+        shell: bash
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+        run: |
+          set -e
+          : "${FTP_HOST:?Cadastre o secret FTP_HOST}"
+          : "${FTP_USERNAME:?Cadastre o secret FTP_USERNAME}"
+          : "${FTP_PASSWORD:?Cadastre o secret FTP_PASSWORD}"
+          : "${FTP_REMOTE_DIR:?Cadastre o secret FTP_REMOTE_DIR}"
+
+          lftp <<LFTP
+          set cmd:fail-exit yes
+          set net:max-retries 3
+          set net:timeout 25
+          set net:reconnect-interval-base 5
+          set ftp:passive-mode true
+          set ftp:ssl-allow true
+          set ftp:ssl-force false
+          set ssl:verify-certificate true
+          open "${FTP_HOST}"
+          user "${FTP_USERNAME}" "${FTP_PASSWORD}"
+          mirror -R --verbose --parallel=2 --only-newer \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob README_GITHUB.md \
+            --exclude-glob CONFIGURAR_GITHUB_PASSO_A_PASSO.txt \
+            --exclude-glob '*.zip' \
+            --exclude-glob 'data/*.sqlite' \
+            --exclude-glob 'data/*.sqlite3' \
+            --exclude-glob 'data/*.db' \
+            --exclude-glob 'data/*.db3' \
+            ./ "${FTP_REMOTE_DIR}"
+          bye
+          LFTP
+
+      - name: Publicação concluída
+        run: echo 'BAMAB publicada. Abra o endereço do site e faça o teste final.'

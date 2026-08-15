@@ -1,0 +1,18 @@
+BAMAB V2.4.6 — OPÇÃO DE EXIBIÇÃO DO NOME NA CARTEIRINHA
+=======================================================
+
+Novo recurso:
+- o Admin Geral agora pode escolher como o nome será mostrado na CARTEIRINHA DO ALUNO:
+  1) PRIMEIRO NOME + PRIMEIRO SOBRENOME
+  2) PRIMEIRO NOME + ÚLTIMO SOBRENOME
+  3) APELIDO / NOME SOCIAL
+
+Regras:
+- essa opção fica no Editor de Documentos;
+- se escolher APELIDO / NOME SOCIAL e o campo estiver vazio, o sistema usa automaticamente o nome do aluno;
+- quando o apelido já for o nome principal da carteirinha, o campo extra de apelido não é repetido.
+
+Arquivos alterados:
+- config.php
+- admin/documentos.php
+- admin/carteirinha.php

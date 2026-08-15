@@ -1,0 +1,36 @@
+# BAMAB — arquivos que NÃO devem ir para o GitHub
+# Banco de dados real e backups
+/data/*
+!/data/.htaccess
+!/data/.gitkeep
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.bak
+*.backup
+
+# Uploads feitos pelo sistema
+/uploads/*
+!/uploads/.htaccess
+!/uploads/index.html
+!/uploads/images/
+!/uploads/videos/
+/uploads/images/*
+!/uploads/images/.gitkeep
+/uploads/videos/*
+!/uploads/videos/.gitkeep
+
+# Credenciais e arquivos locais
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
+
+# Pacotes e backups
+*.zip
+*.7z
+*.rar

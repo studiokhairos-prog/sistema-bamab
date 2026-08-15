@@ -1,0 +1,101 @@
+BAMAB V3.2.0 — ACESSO MASTER + CÓDIGO DOS INSTRUTORES + TESTES AVALIATIVOS
+
+1. BACKUP ANTES DE ATUALIZAR
+Preserve as pastas:
+- data
+- uploads
+
+2. CÓDIGO AUTOMÁTICO DOS INSTRUTORES
+Todos os instrutores e auxiliares recebem um código único no formato:
+BAMAB-I-000001
+BAMAB-I-000002
+...
+Os cadastros antigos recebem o código automaticamente ao abrir o sistema atualizado.
+
+3. LOGIN DO INSTRUTOR
+O campo de identificação aceita:
+- nome completo;
+- nome social/apelido;
+- nome de usuário;
+- código BAMAB do instrutor.
+A senha individual do instrutor continua obrigatória.
+Se houver duas pessoas com o mesmo nome/apelido, deve-se usar usuário ou código.
+
+4. ACESSO MASTER DO ADMIN GERAL
+Página:
+/admin/acesso_master_instrutores.php
+
+O Admin Geral cria uma senha Master (mínimo 10 caracteres) confirmando antes a própria senha de Admin.
+A senha Master fica armazenada apenas como hash e nunca é exibida pelo sistema.
+O Admin pesquisa o instrutor por nome, apelido, usuário ou código e, após informar a senha Master, entra na área daquele instrutor.
+Cada acesso Master é registrado com data, Admin e instrutor acessado.
+Após 5 tentativas Master incorretas, o acesso fica bloqueado por 15 minutos para aquele endereço de rede.
+
+5. TESTES AVALIATIVOS
+Admin:
+/admin/avaliacoes.php
+
+O Admin cria um teste conjunto, escolhe a data e as alas participantes.
+Cada ala recebe automaticamente 10 critérios específicos.
+O Admin pode editar os 10 critérios antes de existir qualquer avaliação naquela ala.
+Após a primeira avaliação, os critérios ficam bloqueados para preservar o histórico.
+
+Pontuação permitida em cada critério:
+- REGULAR = 5 pontos
+- BOM = 8 pontos
+- ÓTIMO = 9 pontos
+- EXCELENTE = 10 pontos
+
+A nota final de cada instrutor é a média dos 10 critérios (0 a 10, com uma casa decimal).
+Quando mais de um instrutor da mesma ala avalia o mesmo aluno, a nota final consolidada exibida ao Admin é a média das notas finais desses instrutores.
+
+6. CRITÉRIOS POR ALA
+Foram criados modelos próprios para:
+- Lira
+- Pratos
+- Bumbo
+- Caixa Tenor
+- Quintom
+- Corpo Coreógrafo
+- Porta Bandeira
+- Porta-Estandarte
+- Guarda de Honra
+
+Os critérios cobrem, conforme a função da ala:
+ritmo, pulsação, harmonia/integração, cadência, precisão, técnica, comandos, dinâmica, postura, deslocamento, sincronismo, coreografia/dança, apresentação, disciplina e evolução.
+
+7. ÁREA DO INSTRUTOR
+Página:
+/instrutor/avaliacoes.php
+
+Cada instrutor vê somente as alas atribuídas ao seu cadastro.
+Ele abre o teste, escolhe o aluno e responde as 10 questões rápidas.
+Pode revisar a própria avaliação enquanto o teste estiver ABERTO.
+A avaliação completa permanece disponível na conta daquele instrutor.
+
+8. RELATÓRIO DO ADMIN
+Página gerada por teste:
+/admin/avaliacao_relatorio.php?test_id=ID
+
+O relatório do Admin mostra SOMENTE:
+- Nome do aluno
+- Matrícula/código
+- Instrumento/ala
+- Nota final consolidada
+
+O relatório pode ser impresso em A4 e exportado em CSV.
+O Admin não recebe a tabela detalhada dos 10 critérios pelo relatório normal.
+
+9. WHATSAPP
+Na avaliação completa do instrutor existe o botão ENVIAR RESULTADO PELO WHATSAPP.
+A mensagem contém os 10 critérios, classificação, pontos e nota final.
+Para aluno menor de idade, o sistema prioriza o telefone do responsável cadastrado.
+O envio não é automático: o instrutor escolhe quando compartilhar.
+
+10. TESTES TÉCNICOS DA VERSÃO
+- Todos os arquivos PHP passaram por php -l.
+- Os JavaScript passaram por node --check.
+- O novo esquema das tabelas e as consultas principais foram simulados com SQLite.
+
+Versão: 3.2.0
+Fuso do sistema: America/Sao_Paulo

@@ -1,0 +1,99 @@
+BAMAB V3.3.0 — AVALIAÇÕES + DIPLOMAS/CERTIFICADOS PREMIUM
+===========================================================
+
+ATUALIZAÇÃO PRINCIPAL
+---------------------
+1. AVALIAÇÃO INICIADA PELO PRÓPRIO INSTRUTOR
+- O Admin não precisa mais criar ou liberar cada teste.
+- Cada Instrutor/Auxiliar pode iniciar um teste a qualquer momento para uma das alas atribuídas ao seu usuário.
+- Para evitar duplicidade, existe apenas um teste aberto por instrutor e ala de cada vez.
+- O teste recebe automaticamente 10 critérios específicos da área.
+- Enquanto estiver aberto, o teste e os detalhes pertencem à área do instrutor.
+- O instrutor finaliza pelo botão “FINALIZAR E ENVIAR RELATÓRIO AO ADMIN”.
+- Somente depois da finalização o relatório fica disponível ao Admin.
+
+2. SISTEMA DE PONTUAÇÃO
+Cada uma das 10 questões usa exclusivamente:
+- REGULAR = 5 pontos
+- BOM = 8 pontos
+- ÓTIMO = 9 pontos
+- EXCELENTE = 10 pontos
+
+A tela mostra ao vivo:
+- questões respondidas (0 a 10)
+- pontos acumulados (0 a 100)
+- nota parcial (0 a 10)
+
+Ao salvar:
+- Pontuação Total = soma das 10 questões, até 100 pontos.
+- Nota Final = Pontuação Total ÷ 10.
+Exemplo: 91 pontos = nota 9,1/10.
+
+3. PRIVACIDADE DO RELATÓRIO
+- O instrutor mantém a avaliação completa com as 10 questões.
+- O Admin recebe somente o relatório final depois do envio.
+- O relatório do Admin apresenta: Nome do aluno, Matrícula/Código, Instrumento/Ala e Nota Final.
+- Os detalhes continuam disponíveis na conta do instrutor e podem ser compartilhados com o aluno/responsável via WhatsApp quando desejado.
+
+4. LEGIBILIDADE CORRIGIDA
+- Páginas de avaliação do instrutor receberam tema escuro de alto contraste.
+- Painéis, textos, campos, selects, botões, avisos e alternativas foram ajustados para impedir texto claro sobre fundo branco.
+- As quatro alternativas de pontuação ficaram grandes e adequadas para uso em celular.
+
+5. CERTIFICADOS E DIPLOMAS PREMIUM
+- Layout redesenhado em A4 paisagem, frente e verso.
+- Molduras, brasão, marca d’água, faixa institucional, hierarquia tipográfica e assinaturas foram refinados.
+- Foto 3x4 não é necessária.
+- Textos principais e dedicatórias são totalmente editáveis no Admin.
+- O sistema mantém Certificado e Diploma para alunos e equipe.
+- Para alunos, o Admin continua decidindo livremente qual documento emitir.
+
+6. HISTÓRICO NO VERSO — ALUNO
+- O verso do Certificado/Diploma é “HISTÓRICO ESCOLAR E DESENVOLVIMENTO MUSICAL”.
+- São listadas automaticamente apenas avaliações finalizadas e enviadas ao Admin no ano do documento.
+- Mostra: Data, Avaliação, Instrumento/Ala, Pontos/100 e Nota/10.
+- Calcula a média anual registrada.
+- Se não houver avaliação, o documento informa isso; nenhuma nota é inventada.
+- Quando houver muitas avaliações, o histórico continua em páginas adicionais para não cortar informações.
+
+7. CERTIFICADO DE PARCEIROS BAMAB
+Agora podem receber Certificado de Reconhecimento:
+- Patrocinadores
+- Apoiadores
+- Idealizadores
+- Parceiros
+- Prefeitura
+- Secretarias
+- Órgãos/apoios institucionais cadastrados
+
+Quando existir uma logo cadastrada para o parceiro/órgão, ela pode aparecer no certificado junto à identidade BAMAB.
+O texto e a dedicatória para parceiros e instituições são editáveis.
+
+8. ASSINATURAS
+O editor de reconhecimento mantém assinaturas configuráveis, incluindo nome, cargo, ordem, ativar/desativar e imagem de assinatura.
+A página impressa utiliza até quatro assinaturas ativas na ordem configurada.
+
+9. IMPRESSÃO
+- Documento: A4 paisagem, tamanho real/100%.
+- Há opções para imprimir Frente + Verso, Somente Frente ou Somente Verso/Histórico.
+- Ative “gráficos de plano de fundo” no navegador para preservar cores, brasão e marca d’água.
+
+INSTALAÇÃO / ATUALIZAÇÃO
+------------------------
+Antes de substituir o sistema, faça BACKUP das pastas:
+- data
+- uploads
+
+Instalação padrão XAMPP:
+C:\xampp\htdocs\BAMAB
+
+A versão utiliza migrações automáticas para os novos campos/tabelas. O PHP disponível no ambiente de desenvolvimento desta entrega não possui o driver PDO SQLite, portanto a execução real das migrações PHP deve ser conferida no XAMPP. A estrutura SQL e o fluxo central de cálculo foram simulados separadamente em SQLite.
+
+VALIDAÇÃO DA ENTREGA
+--------------------
+- PHP: 87 arquivos verificados sem erro de sintaxe.
+- JavaScript: 2 arquivos verificados sem erro de sintaxe.
+- Cálculo de teste validado em SQLite: 91/100 = 9,1/10.
+- Consulta de relatório final e histórico anual testadas em simulação SQLite.
+
+Versão: 3.3.0

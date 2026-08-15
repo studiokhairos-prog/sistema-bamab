@@ -1,0 +1,24 @@
+BAMAB V2.5.0 — NOVA OPÇÃO DE ALA
+================================
+
+Foi acrescentada nas inscrições a opção:
+PORTA-ESTANDARTE
+
+Agora as opções públicas são:
+- Lira
+- Pratos
+- Bumbo
+- Caixa Tenor
+- Quintom
+- Corpo Coreógrafo
+- Porta Bandeira
+- Porta-Estandarte
+- Guarda de Honra
+
+A nova opção passa automaticamente a aparecer:
+- no formulário público de matrícula;
+- nas listas do Admin;
+- nos relatórios;
+- na carteirinha;
+- no crachá;
+- nos registros de presença.

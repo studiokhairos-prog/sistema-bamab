@@ -1,0 +1,18 @@
+BAMAB V2.4.7 — EXCLUIR PERÍODO DE INSCRIÇÃO
+=============================================
+
+NOVO:
+Admin Geral -> Matrículas -> Períodos de matrícula
+
+Cada período agora possui a opção:
+EXCLUIR
+
+REGRAS DE SEGURANÇA:
+- período sem nenhuma matrícula: pode ser excluído;
+- período ativo e vazio: também pode ser excluído;
+- ao excluir período ativo, as matrículas públicas ficam fechadas;
+- período que já possui matrícula(s): EXCLUSÃO BLOQUEADA;
+- isso evita apagar alunos e documentos por engano;
+- nome e datas de período com inscrições continuam podendo ser corrigidos.
+
+A exclusão exige confirmação antes de ser executada.
