@@ -720,7 +720,7 @@ function migrate(PDO $pdo): void {
         'report_city'=>'Santa Luzia do Paruá',
         'report_state'=>'Maranhão',
         'logo_path'=>'assets/brasao_bamab_2026.png',
-        'hero_image_path'=>'assets/hero_banda_inicial.jpg',
+        'hero_image_path'=>'assets/hero_banda_inicial.png',
         'primary_color'=>'#090909',
         'secondary_color'=>'#c99a34',
         'dark_color'=>'#050505',

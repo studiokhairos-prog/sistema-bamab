@@ -2,7 +2,7 @@
 require __DIR__.'/layout.php';
 site_header();
 $logo=setting('logo_path','assets/brasao_bamab_2026.png');
-$hero=setting('hero_image_path','assets/hero_banda_inicial.jpg');
+$hero=setting('hero_image_path','assets/hero_banda_inicial.png');
 $sponsors=[];
 if(setting('sponsor_widget_enabled','1')==='1'){
   try{$sponsors=db()->query("SELECT * FROM sponsors WHERE active=1 AND logo_path<>'' ORDER BY sort_order ASC,id ASC")->fetchAll();}catch(Throwable $e){$sponsors=[];}
