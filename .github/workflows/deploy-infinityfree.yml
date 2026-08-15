@@ -79,7 +79,7 @@ jobs:
           set ftp:ssl-allow true
           set ftp:ssl-force false
           set ssl:verify-certificate true
-          mirror -R --verbose --parallel=2 --only-newer \
+          mirror -R --verbose --parallel=2 --only-newer --no-perms \
             --exclude-glob .git/ \
             --exclude-glob .github/ \
             --exclude-glob README_GITHUB.md \
