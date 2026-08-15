@@ -79,7 +79,7 @@ jobs:
           set ftp:ssl-allow true
           set ftp:ssl-force false
           set ssl:verify-certificate true
-          mirror -R --verbose --parallel=1 --only-newer --no-perms \
+          mirror -R --verbose --parallel=1 --ignore-time --overwrite --no-perms \
             --exclude-glob .git/ \
             --exclude-glob .github/ \
             --exclude-glob README_GITHUB.md \
@@ -87,6 +87,7 @@ jobs:
             --exclude-glob '*.zip' \
             --exclude-glob 'uploads/**' \
             --exclude-glob 'assets/hero_banda_inicial.jpg' \
+            --exclude-glob 'assets/brasao_original_2026.png' \
             --exclude-glob 'data/*.sqlite' \
             --exclude-glob 'data/*.sqlite3' \
             --exclude-glob 'data/*.db' \
