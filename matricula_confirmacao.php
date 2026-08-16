@@ -33,6 +33,7 @@ site_header('Matrícula enviada');
   </div>
   <section class="receipt-terms">
     <h2>Registros da inscrição</h2>
+    <div><span>✓</span> Matrícula <b>APROVADA AUTOMATICAMENTE</b> e disponível para conferência da Administração BAMAB.</div>
     <div><span>✓</span> Participação autorizada e termos registrados.</div>
     <div><span>✓</span> Instrumentos, patrimônio, uniforme e camisas: ciência/compromisso registrados.</div>
     <div><span>✓</span> Uso de imagem e voz: <b><?=(int)$r['image_authorization']===1?'AUTORIZADO':'NÃO AUTORIZADO'?></b>.</div>

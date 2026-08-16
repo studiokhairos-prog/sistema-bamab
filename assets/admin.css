@@ -666,3 +666,22 @@
 .attendance-event-list article{grid-template-columns:minmax(220px,1fr) repeat(6,auto)}
 @media(max-width:1100px){.attendance-event-list article{grid-template-columns:1fr auto auto}.attendance-event-list article>div:first-child{grid-column:1/-1}}
 @media(max-width:650px){.attendance-event-list article{grid-template-columns:1fr 1fr}.attendance-event-list article>div:first-child{grid-column:1/-1}.attendance-event-list article a,.attendance-event-list article form,.attendance-event-list article form button{width:100%}}
+
+/* Aviso flutuante de novas matrículas */
+.admin-enrollment-notification{position:fixed;right:22px;bottom:22px;z-index:1300;width:min(440px,calc(100vw - 32px));max-height:min(680px,calc(100vh - 44px));overflow:auto;padding:0;border:2px solid var(--site-gold,#c99a34);border-radius:18px;background:linear-gradient(155deg,#17120b,#070707 58%);color:#fff;box-shadow:0 24px 70px #000b,0 0 0 5px #c99a341c;opacity:0;transform:translateY(24px) scale(.96);transition:opacity .2s ease,transform .2s ease}
+.admin-enrollment-notification.is-visible{opacity:1;transform:translateY(0) scale(1)}
+.admin-enrollment-notification__head{display:grid;grid-template-columns:48px minmax(0,1fr) 38px;gap:12px;align-items:center;padding:17px 17px 13px;border-bottom:1px solid #c99a3450;background:linear-gradient(90deg,#7d102066,#090909)}
+.admin-enrollment-notification__icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#168143;color:#fff;font-size:25px;font-weight:950;box-shadow:0 0 0 4px #16814330}
+.admin-enrollment-notification__head span{display:block;margin-bottom:2px;color:#d9b454;font-size:9px;font-weight:950;letter-spacing:.14em}
+.admin-enrollment-notification__head h2{margin:0;color:#fff!important;font-size:19px;line-height:1.15}
+.admin-enrollment-notification__head>button{width:36px;height:36px;padding:0;border:1px solid #ffffff2b;border-radius:50%;background:#ffffff0d;color:#fff;font-size:25px;line-height:1;cursor:pointer}
+.admin-enrollment-notification__head>button:hover{background:#7d1020}.admin-enrollment-notification__head>button:disabled{opacity:.5;cursor:wait}
+.admin-enrollment-notification__summary{margin:0;padding:14px 17px 9px;color:#eee;font-size:13px;line-height:1.5}
+.admin-enrollment-notification__list{display:grid;gap:9px;padding:5px 12px 13px}
+.admin-enrollment-notification__list article{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff0a}
+.admin-enrollment-notification__list article>div{min-width:0}.admin-enrollment-notification__list strong,.admin-enrollment-notification__list span,.admin-enrollment-notification__list small{display:block}
+.admin-enrollment-notification__list strong{overflow-wrap:anywhere;color:#fff;font-size:14px}.admin-enrollment-notification__list span{margin-top:4px;color:#d9bc72;font-size:11px;font-weight:800}.admin-enrollment-notification__list small{margin-top:4px;color:#bdbdbd;font-size:9px}
+.admin-enrollment-notification__list a{padding:10px 11px;border:1px solid #d6ab47;border-radius:8px;background:#c99a34;color:#090909;font-size:9px;font-weight:950;text-decoration:none;white-space:nowrap}.admin-enrollment-notification__list a:hover{background:#f0c760}.admin-enrollment-notification__list a.is-loading{opacity:.6;pointer-events:none}
+.admin-enrollment-notification__read{width:calc(100% - 24px);margin:0 12px 13px;padding:12px;border:1px solid #ffffff2b;border-radius:10px;background:#7d1020;color:#fff;font-weight:950;letter-spacing:.04em;cursor:pointer}.admin-enrollment-notification__read:hover{background:#a1172d}.admin-enrollment-notification__read:disabled{opacity:.55;cursor:wait}
+@media(max-width:560px){.admin-enrollment-notification{right:12px;bottom:12px;width:calc(100vw - 24px);max-height:calc(100vh - 24px)}.admin-enrollment-notification__list article{grid-template-columns:1fr}.admin-enrollment-notification__list a{text-align:center}.admin-enrollment-notification__head{grid-template-columns:42px minmax(0,1fr) 36px}.admin-enrollment-notification__icon{width:40px;height:40px;font-size:21px}}
+@media(prefers-reduced-motion:reduce){.admin-enrollment-notification{transition:none}}

@@ -5,7 +5,7 @@ declare(strict_types=1);
 date_default_timezone_set('America/Sao_Paulo');
 
 const APP_NAME = 'BAMAB';
-const APP_VERSION = '3.4.2';
+const APP_VERSION = '3.4.4';
 const FREE_HOSTING_MODE = true;
 const FREE_HOSTING_PROVIDER = 'InfinityFree';
 const FREE_DB_WARN_BYTES = 8 * 1024 * 1024;
@@ -348,6 +348,29 @@ function migrate(PDO $pdo): void {
         FOREIGN KEY(enrollment_id) REFERENCES enrollments(id)
     )");
     $pdo->exec("CREATE INDEX IF NOT EXISTS idx_guardian_cards_status ON guardian_cards(status)");
+
+    // Avisos persistentes: cada administrador confirma individualmente a leitura.
+    $pdo->exec("CREATE TABLE IF NOT EXISTS admin_notifications(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        type TEXT NOT NULL DEFAULT 'INFO',
+        enrollment_id INTEGER DEFAULT NULL,
+        title TEXT NOT NULL,
+        message TEXT NOT NULL DEFAULT '',
+        created_at TEXT NOT NULL,
+        FOREIGN KEY(enrollment_id) REFERENCES enrollments(id)
+    )");
+    $pdo->exec("CREATE INDEX IF NOT EXISTS idx_admin_notifications_type_id
+        ON admin_notifications(type,id)");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS admin_notification_reads(
+        notification_id INTEGER NOT NULL,
+        admin_id INTEGER NOT NULL,
+        read_at TEXT NOT NULL,
+        PRIMARY KEY(notification_id,admin_id),
+        FOREIGN KEY(notification_id) REFERENCES admin_notifications(id) ON DELETE CASCADE,
+        FOREIGN KEY(admin_id) REFERENCES admins(id) ON DELETE CASCADE
+    )");
+    $pdo->exec("CREATE INDEX IF NOT EXISTS idx_admin_notification_reads_admin
+        ON admin_notification_reads(admin_id,notification_id)");
 
 
     $pdo->exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_enrollments_qr_token
@@ -1539,7 +1562,7 @@ function card_valid_until(string $createdAt): string {
     try { return (new DateTimeImmutable($createdAt))->modify('+1 year')->format('Y-m-d'); }
     catch(Throwable $e) { return date('Y-m-d',strtotime('+1 year')); }
 }
-function issue_or_activate_card(int $enrollmentId,int $adminId): array {
+function issue_or_activate_card(int $enrollmentId,?int $adminId=null): array {
     $pdo=db();
     $st=$pdo->prepare("SELECT * FROM enrollments WHERE id=?");
     $st->execute([$enrollmentId]);$e=$st->fetch();
@@ -1599,7 +1622,7 @@ function guardian_requirements_ok(array $e): array {
     if(trim((string)$e['guardian_photo_path'])==='') return [false,'Cadastre a foto 3x4 do responsável/acompanhante.'];
     return [true,''];
 }
-function issue_or_activate_guardian_card(int $enrollmentId,int $adminId): ?array {
+function issue_or_activate_guardian_card(int $enrollmentId,?int $adminId=null): ?array {
     $pdo=db();$st=$pdo->prepare("SELECT * FROM enrollments WHERE id=?");$st->execute([$enrollmentId]);$e=$st->fetch();
     if(!$e || (int)$e['is_minor']!==1) return null;
     [$ok,$reason]=guardian_requirements_ok($e); if(!$ok) throw new RuntimeException($reason);

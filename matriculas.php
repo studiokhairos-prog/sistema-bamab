@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     signer_name,signed_at,terms_version,term_participation_snapshot,term_image_snapshot,term_instrument_snapshot,term_uniform_snapshot,term_privacy_snapshot,term_name_respect_snapshot
    ) VALUES(".implode(',',array_fill(0,55,'?')).")");
    $st->execute([
-    $protocol,$token,$now,$now,'PENDENTE',(int)$period['id'],'',$photo,
+    $protocol,$token,$now,$now,'APROVADA',(int)$period['id'],'',$photo,
     $values['student_name'],$values['preferred_name'],1,$qrToken,$values['birth_date'],normalize_cpf($values['student_cpf']),$values['student_phone'],$values['student_email'],$values['address'],$values['neighborhood'],$values['city'],$values['instrument'],$values['experience'],$isMinor?1:0,
     $values['guardian_name'],$values['guardian_birth_date'],normalize_cpf($values['guardian_cpf']),$values['guardian_phone'],$values['guardian_email'],$values['guardian_relationship'],$values['guardian_address'],$values['guardian_neighborhood'],$values['guardian_city'],$guardianPhoto,$guardianQr,
     $values['emergency_name'],$values['emergency_phone'],(int)$values['image_authorization'],1,1,1,1,
@@ -71,7 +71,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $values['signer_name'],$now,$termsVersion,setting('term_participation'),setting('term_image'),setting('term_instrument'),setting('term_uniform'),setting('term_privacy'),setting('term_name_respect')
    ]);
    $id=(int)$pdo->lastInsertId();$year=substr((string)$period['start_date'],0,4)?:date('Y');$registration=registration_number_from_id($id,$year);
-   $pdo->prepare("UPDATE enrollments SET registration_number=? WHERE id=?")->execute([$registration,$id]);$pdo->commit();
+   $pdo->prepare("UPDATE enrollments SET registration_number=? WHERE id=?")->execute([$registration,$id]);
+   issue_or_activate_card($id,null);
+   $pdo->prepare("INSERT INTO admin_notifications(type,enrollment_id,title,message,created_at) VALUES('NOVA_MATRICULA',?,'Nova matrícula aprovada','Recebida pelo formulário público e aprovada automaticamente.',?)")
+       ->execute([$id,$now]);
+   $pdo->commit();
    header('Location: matricula_confirmacao.php?t='.urlencode($token));exit;
  }catch(Throwable $e){
    if($pdo->inTransaction())$pdo->rollBack();if($photo)delete_local_media($photo);if($guardianPhoto)delete_local_media($guardianPhoto);
@@ -204,7 +208,7 @@ site_header('Matrículas');$open=$period!==null;
   <label class="full-label">Nome completo de quem conclui a matrícula *<input name="signer_name" value="<?=e($values['signer_name'])?>" required></label>
  </section>
 
- <div class="form-submit-row"><div><strong><?=e($period['name'])?></strong><small>Após o envio, a Coordenação analisará a matrícula.</small></div><button class="enrollment-submit">ENVIAR MATRÍCULA <span>›</span></button></div>
+ <div class="form-submit-row"><div><strong><?=e($period['name'])?></strong><small>Após o envio, a matrícula será aprovada automaticamente e ficará disponível para conferência do Admin.</small></div><button class="enrollment-submit">ENVIAR MATRÍCULA <span>›</span></button></div>
 </fieldset>
 </form>
 

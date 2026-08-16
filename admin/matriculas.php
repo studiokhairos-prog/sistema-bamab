@@ -119,7 +119,7 @@ admin_header('Matrículas por Período');$msg=flash();
 </section>
 
 <section class="panel" id="lista">
- <div class="panel-heading-flex"><div><h2>Lista de inscrições</h2><p>Ordenada alfabeticamente. Use os filtros para uma ala específica.</p></div><a class="admin-action-link" href="relatorio_matriculas.php?period_id=<?=$selectedId?>">IMPRIMIR RELATÓRIO</a></div>
+ <div class="panel-heading-flex"><div><h2>Lista de inscrições</h2><p>Ordenada alfabeticamente. Novas inscrições públicas são aprovadas automaticamente; o Admin pode editar os dados e alterar o status a qualquer momento.</p></div><a class="admin-action-link" href="relatorio_matriculas.php?period_id=<?=$selectedId?>">IMPRIMIR RELATÓRIO</a></div>
  <form method="get" class="filter-row"><input type="hidden" name="period_id" value="<?=$selectedId?>">
   <label>Pesquisar<input name="q" value="<?=e($q)?>" placeholder="Nome ou matrícula"></label>
   <label>Status<select name="status"><option value="">Todos</option><?php foreach(enrollment_statuses() as $k=>$v):if($k==='EXCLUIDA')continue;?><option value="<?=e($k)?>" <?=$status===$k?'selected':''?>><?=e($v)?></option><?php endforeach;?></select></label>
