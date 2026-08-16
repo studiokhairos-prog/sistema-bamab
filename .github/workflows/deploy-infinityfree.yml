@@ -87,6 +87,7 @@ jobs:
             --exclude-glob '*.zip' \
             --exclude-glob 'uploads/**' \
             --exclude-glob 'assets/hero_banda_inicial.jpg' \
+            --exclude-glob 'assets/hero_banda_inicial.png' \
             --exclude-glob 'assets/brasao_original_2026.png' \
             --exclude-glob 'data/*.sqlite' \
             --exclude-glob 'data/*.sqlite3' \
