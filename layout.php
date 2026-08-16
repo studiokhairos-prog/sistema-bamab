@@ -10,7 +10,12 @@ function site_header(string $title=''): void {
 <!doctype html><html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="<?=e($black)?>"><meta name="description" content="BAMAB — Banda Amaral Brasil">
+<meta name="application-name" content="BAMAB"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="BAMAB">
 <title><?=e($title?$title.' — '.$name:$name.' — Banda Amaral Brasil')?></title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 <link rel="stylesheet" href="<?=e(app_asset('assets/site.css'))?>">
 <style>:root{--gold:<?=e($gold)?>;--black:<?=e($black)?>;--silver:<?=e($silver)?>;--primary:#090909;--secondary:<?=e($gold)?>;--dark:<?=e($black)?>;--light:<?=e($silver)?>}</style>
 </head><body>
@@ -54,6 +59,6 @@ function site_footer(): void { ?>
   <div class="footer-brand"><strong>BAMAB - BANDA AMARAL BRASIL</strong><span><?=e(setting('footer_text'))?></span></div>
   <div class="copyright">© <?=date('Y')?> BAMAB - Todos os direitos reservados.</div>
 </footer>
-<script src="<?=e(app_asset('assets/site.js'))?>"></script><script async src="https://www.instagram.com/embed.js"></script>
+<script src="<?=e(app_asset('assets/site.js'))?>"></script><script src="<?=e(app_asset('assets/pwa.js'))?>"></script><script async src="https://www.instagram.com/embed.js"></script>
 </body></html><?php }
 ?>

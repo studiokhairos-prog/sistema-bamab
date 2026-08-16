@@ -1,5 +1,11 @@
 Options -Indexes
 
+# Tipos usados pelo aplicativo instalável (PWA).
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType application/javascript .js
+</IfModule>
+
 # Protege arquivos internos e banco de dados.
 <FilesMatch "(^\.|\.(sqlite|sqlite3|db|key|log|ini|env|bak|backup|sql|sh|phar)$)">
   Require all denied
@@ -16,4 +22,9 @@ Options -Indexes
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(self)"
+
+  # Permite que o navegador detecte imediatamente novas versões do aplicativo.
+  <Files "service-worker.js">
+    Header always set Cache-Control "no-cache, no-store, must-revalidate"
+  </Files>
 </IfModule>
