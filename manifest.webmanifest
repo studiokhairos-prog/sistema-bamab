@@ -14,19 +14,19 @@
   "categories": ["education", "music", "productivity"],
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
+      "src": "assets/bamab-app-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/icons/icon-512.png",
+      "src": "assets/bamab-app-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/icons/icon-maskable-512.png",
+      "src": "assets/bamab-app-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -37,13 +37,13 @@
       "name": "Agenda BAMAB",
       "short_name": "Agenda",
       "url": "agenda.php",
-      "icons": [{"src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png"}]
+      "icons": [{"src": "assets/bamab-app-192.png", "sizes": "192x192", "type": "image/png"}]
     },
     {
       "name": "Matrículas BAMAB",
       "short_name": "Matrículas",
       "url": "matriculas.php",
-      "icons": [{"src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png"}]
+      "icons": [{"src": "assets/bamab-app-192.png", "sizes": "192x192", "type": "image/png"}]
     }
   ]
 }

@@ -14,8 +14,8 @@ function site_header(string $title=''): void {
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="BAMAB">
 <title><?=e($title?$title.' — '.$name:$name.' — Banda Amaral Brasil')?></title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/bamab-app-192.png">
+<link rel="apple-touch-icon" href="assets/bamab-app-192.png">
 <link rel="stylesheet" href="<?=e(app_asset('assets/site.css'))?>">
 <style>:root{--gold:<?=e($gold)?>;--black:<?=e($black)?>;--silver:<?=e($silver)?>;--primary:#090909;--secondary:<?=e($gold)?>;--dark:<?=e($black)?>;--light:<?=e($silver)?>}</style>
 </head><body>

@@ -1,15 +1,15 @@
 'use strict';
 
 const CACHE_PREFIX='bamab-pwa-';
-const CACHE_NAME='bamab-pwa-v1';
+const CACHE_NAME='bamab-pwa-v2';
 const SCOPE_URL=new URL(self.registration.scope);
 const OFFLINE_URL=new URL('offline.html',SCOPE_URL).toString();
 const PRECACHE=[
   OFFLINE_URL,
   new URL('manifest.webmanifest',SCOPE_URL).toString(),
-  new URL('assets/icons/icon-192.png',SCOPE_URL).toString(),
-  new URL('assets/icons/icon-512.png',SCOPE_URL).toString(),
-  new URL('assets/icons/icon-maskable-512.png',SCOPE_URL).toString()
+  new URL('assets/bamab-app-192.png',SCOPE_URL).toString(),
+  new URL('assets/bamab-app-512.png',SCOPE_URL).toString(),
+  new URL('assets/bamab-app-maskable-512.png',SCOPE_URL).toString()
 ];
 
 self.addEventListener('install',event=>{

@@ -19,7 +19,7 @@
     installButton.type='button';
     installButton.className='pwa-install-button';
     installButton.hidden=true;
-    installButton.innerHTML='<img src="assets/icons/icon-192.png" alt=""><span>INSTALAR BAMAB</span>';
+    installButton.innerHTML='<img src="assets/bamab-app-192.png" alt=""><span>INSTALAR BAMAB</span>';
     installButton.setAttribute('aria-label','Instalar o aplicativo BAMAB');
     document.body.appendChild(installButton);
     return installButton;
@@ -36,7 +36,7 @@
       guide=document.createElement('div');
       guide.className='pwa-install-backdrop';
       guide.hidden=true;
-      guide.innerHTML='<section class="pwa-install-dialog" role="dialog" aria-modal="true" aria-labelledby="pwaInstallTitle"><img src="assets/icons/icon-192.png" alt="Brasão BAMAB"><h2 id="pwaInstallTitle">Instalar BAMAB</h2><p>No iPhone ou iPad, faça a instalação pelo menu do navegador:</p><div class="pwa-install-steps"><strong>1. Toque em Compartilhar ⎋</strong><strong>2. Escolha “Adicionar à Tela de Início”</strong><strong>3. Confirme em “Adicionar”</strong></div><button class="pwa-install-close" type="button">ENTENDI</button></section>';
+      guide.innerHTML='<section class="pwa-install-dialog" role="dialog" aria-modal="true" aria-labelledby="pwaInstallTitle"><img src="assets/bamab-app-192.png" alt="Brasão BAMAB"><h2 id="pwaInstallTitle">Instalar BAMAB</h2><p>No iPhone ou iPad, faça a instalação pelo menu do navegador:</p><div class="pwa-install-steps"><strong>1. Toque em Compartilhar ⎋</strong><strong>2. Escolha “Adicionar à Tela de Início”</strong><strong>3. Confirme em “Adicionar”</strong></div><button class="pwa-install-close" type="button">ENTENDI</button></section>';
       document.body.appendChild(guide);
       guide.querySelector('.pwa-install-close').addEventListener('click',closeGuide);
       guide.addEventListener('click',event=>{if(event.target===guide)closeGuide();});
