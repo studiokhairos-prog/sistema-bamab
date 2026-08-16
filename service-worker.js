@@ -8,7 +8,6 @@ const PRECACHE=[
   OFFLINE_URL,
   new URL('manifest.webmanifest',SCOPE_URL).toString(),
   new URL('assets/bamab-app-192.png',SCOPE_URL).toString(),
-  new URL('assets/bamab-app-512.png',SCOPE_URL).toString(),
   new URL('assets/bamab-app-maskable-512.png',SCOPE_URL).toString()
 ];
 

@@ -87,6 +87,9 @@ jobs:
             --exclude-glob '*.zip' \
             --exclude-glob 'uploads/**' \
             --exclude-glob 'assets/icons/**' \
+            --exclude-glob 'assets/bamab-app-192.png' \
+            --exclude-glob 'assets/bamab-app-512.png' \
+            --exclude-glob 'assets/bamab-app-maskable-512.png' \
             --exclude-glob 'assets/hero_banda_inicial.jpg' \
             --exclude-glob 'assets/hero_banda_inicial.png' \
             --exclude-glob 'assets/brasao_original_2026.png' \
