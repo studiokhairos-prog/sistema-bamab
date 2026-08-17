@@ -84,7 +84,7 @@ jobs:
             --exclude-glob .github/ \
             --exclude-glob README_GITHUB.md \
             --exclude-glob CONFIGURAR_GITHUB_PASSO_A_PASSO.txt \
-            --exclude-glob '*.zip' \            
+            --exclude-glob '*.zip' \ 
             --exclude-glob 'data/*.sqlite' \
             --exclude-glob 'data/*.sqlite3' \
             --exclude-glob 'data/*.db' \
